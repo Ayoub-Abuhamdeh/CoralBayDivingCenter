@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CoralBayDivingCenter.Views.Main"
+             x:Class="CoralBayDivingCenter.Views.SignIn"
+             NavigationPage.HasNavigationBar="False"
              xmlns:viewmodels="clr-namespace:CoralBayDivingCenter.ViewModels"
              viewmodels:ViewModelLocator.AutoWireViewModel="True"
-             BackgroundColor="Red">
-    <StackLayout>
-        
-    </StackLayout>
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Command="{Binding LoginCommand}" Text="Login" /> 
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

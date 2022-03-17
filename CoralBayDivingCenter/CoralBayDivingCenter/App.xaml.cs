@@ -18,7 +18,7 @@ namespace CoralBayDivingCenter
 
             _ = Startup.Init(); // To register all our services and viewmodels into dependency injection
             _ = InitNavigation();
-
+           
             //_themeResolver = ViewModelLocator.Resolve<IThemeResolver>();
             //dictionary.MergedDictionaries.Add(_themeResolver.GetDeciveTheme());
 
@@ -26,7 +26,7 @@ namespace CoralBayDivingCenter
             GetPhoneCluture();
         }
 
-        
+
         private Task InitNavigation()
         {
             var navigationservice = ViewModelLocator.Resolve<INavigationService>();

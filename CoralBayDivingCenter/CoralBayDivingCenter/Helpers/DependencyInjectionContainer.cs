@@ -18,7 +18,12 @@ namespace CoralBayDivingCenter.Helpers
 
         public static IServiceCollection ConfigureViewModels(this IServiceCollection services)
         {
-            services.AddTransient<MainViewModel>();
+            services.AddTransient<DiscoveryViewModel>();
+            services.AddTransient<DivingLocationsViewModel>();
+            services.AddTransient<TripsViewModel>();
+            services.AddTransient<ProfileViewModel>();
+            services.AddTransient<SignInViewModel>();
+            
 
             return services;
         }

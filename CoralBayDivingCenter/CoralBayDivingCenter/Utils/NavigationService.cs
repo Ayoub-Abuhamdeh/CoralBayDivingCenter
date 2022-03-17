@@ -25,19 +25,20 @@ namespace CoralBayDivingCenter.Utils
 
         public async Task InitializeAsync()
         {
+            var appSettings = await _storageService.SecureStorageGetAsync<AppSettings>(AppConstants.AppSettingsKey, true);
+            if (appSettings != null)
+            {
+                if ((!appSettings?.IsLoggedIn) ?? true) // Navigate to login view
+                {
+                    await NavigateToAsync<SignInViewModel>();
+                    return;
+                }
+            }
 
-            await NavigateToAsync<MainViewModel>();
-
-            //var appSettings = await _storageService.SecureStorageGetAsync<AppSettings>(AppConstants.AppSettingsKey, true);
-            //if ((!appSettings?.IsLoggedIn) ?? true) // Navigate to login view
-            //{
-            //    await NavigateToAsync<MainViewModel>();
-
-            //    return;
-            //}
 
             // All data is correct and driver is logged in, Then =>
-            //await NavigateToAsync<RideRequestDetailsViewModel>();
+
+            Application.Current.MainPage = new AppShell();
 
             return;
         }
