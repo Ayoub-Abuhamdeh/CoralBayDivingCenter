@@ -23,7 +23,8 @@ namespace CoralBayDivingCenter.Helpers
             services.AddTransient<TripsViewModel>();
             services.AddTransient<ProfileViewModel>();
             services.AddTransient<SignInViewModel>();
-            
+            services.AddTransient<TripDetailsViewModel>();
+            services.AddTransient<DivingLocationDetailsViewModel>();
 
             return services;
         }
