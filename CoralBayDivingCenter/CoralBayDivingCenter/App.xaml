@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CoralBayDivingCenter.App">
     <Application.Resources>
-
+        <ResourceDictionary x:Name="dictionary">
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

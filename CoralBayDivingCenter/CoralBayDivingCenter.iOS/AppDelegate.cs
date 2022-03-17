@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using CoralBayDivingCenter.iOS.GoogleMaps;
 using Foundation;
 using UIKit;
+using Xamarin.Forms.GoogleMaps.iOS;
 
 namespace CoralBayDivingCenter.iOS
 {
@@ -23,6 +24,15 @@ namespace CoralBayDivingCenter.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            var platformConfig = new PlatformConfig
+            {
+                ImageFactory = new CachingImageFactory()
+            };
+
+            Xamarin.FormsGoogleMaps.Init("", platformConfig); // TODO: GoogleMaps SDK API key should be added here
+            Xamarin.FormsGoogleMapsBindings.Init();
+            Rg.Plugins.Popup.Popup.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
