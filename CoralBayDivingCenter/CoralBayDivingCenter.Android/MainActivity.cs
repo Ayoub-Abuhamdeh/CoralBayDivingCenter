@@ -1,17 +1,17 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.OS;
-using Xamarin.Forms.GoogleMaps.Android;
-using CoralBayDivingCenter.Droid.GoogleMaps;
 using Android.Gms.Common;
+using Android.OS;
+using Android.Runtime;
+using CoralBayDivingCenter.Configurations;
+using CoralBayDivingCenter.Droid.DependencyServices;
+using CoralBayDivingCenter.Droid.GoogleMaps;
 using CoralBayDivingCenter.Interfaces;
 using CoralBayDivingCenter.Models;
-using CoralBayDivingCenter.Configurations;
 using CoralBayDivingCenter.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Plugin.CurrentActivity;
+using Xamarin.Forms.GoogleMaps.Android;
 
 namespace CoralBayDivingCenter.Droid
 {
@@ -29,6 +29,7 @@ namespace CoralBayDivingCenter.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this);
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             //For Bitmap Config
             var platformConfig = new PlatformConfig
@@ -37,6 +38,9 @@ namespace CoralBayDivingCenter.Droid
             };
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState, platformConfig);
             Xamarin.FormsGoogleMapsBindings.Init();
+
+            // Registering native services
+            ViewModelLocator.RegisterSingleton<IMessageDisplay, MessageDisplayService>();
 
             // Check for google play services.
             if (IsPlayServicesAvailable())

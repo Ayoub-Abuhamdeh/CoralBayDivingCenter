@@ -69,7 +69,7 @@ namespace CoralBayDivingCenter.ViewModels
             }
             catch (Exception ex)
             {
-                throw new Exception("the page is not register");
+                throw new Exception("the page is not registered");
             }
         }
     }

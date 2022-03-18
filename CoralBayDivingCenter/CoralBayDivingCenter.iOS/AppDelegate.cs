@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CoralBayDivingCenter.Interfaces;
+using CoralBayDivingCenter.iOS.DependencyServices;
 using CoralBayDivingCenter.iOS.GoogleMaps;
+using CoralBayDivingCenter.ViewModels;
 using Foundation;
 using UIKit;
 using Xamarin.Forms.GoogleMaps.iOS;
@@ -32,6 +35,9 @@ namespace CoralBayDivingCenter.iOS
             Xamarin.FormsGoogleMaps.Init("", platformConfig); // TODO: GoogleMaps SDK API key should be added here
             Xamarin.FormsGoogleMapsBindings.Init();
             Rg.Plugins.Popup.Popup.Init();
+
+            // Registering native services
+            ViewModelLocator.RegisterSingleton<IMessageDisplay, MessageDisplayService>();
 
             LoadApplication(new App());
 

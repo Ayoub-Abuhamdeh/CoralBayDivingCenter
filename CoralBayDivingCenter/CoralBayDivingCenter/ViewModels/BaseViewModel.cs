@@ -1,7 +1,6 @@
-﻿using CoralBayDivingCenter.Interfaces;
-using CoralBayDivingCenter.Resources;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using CoralBayDivingCenter.Resources;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -9,8 +8,6 @@ namespace CoralBayDivingCenter.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        private readonly INavigationService _navigationService;
-
         private bool isArabic = LanguageDirection.FlowDirection == FlowDirection.RightToLeft;
         public bool IsArabic
         {
@@ -61,11 +58,11 @@ namespace CoralBayDivingCenter.ViewModels
             IsInternetConnected = e.NetworkAccess == NetworkAccess.Internet;
             if (IsInternetConnected)
             {
-                //_messageDisplay.SnackBarDisplay("Interent connection is back", MessageType.Success);
+                // Notify the user that the Interent connection is back
             }
             else
             {
-                //_messageDisplay.SnackBarDisplay("No Internet connection", MessageType.Error);
+                // Notify the user that there is No Internet connection
             }
         }
 

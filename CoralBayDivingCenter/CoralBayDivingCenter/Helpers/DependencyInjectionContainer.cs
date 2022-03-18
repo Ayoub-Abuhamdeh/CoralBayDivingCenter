@@ -11,7 +11,7 @@ namespace CoralBayDivingCenter.Helpers
         {
             services.AddSingleton<IStorageService, StorageService>();
             services.AddSingleton<INavigationService, NavigationService>();
-            services.AddSingleton<IInternetService, InternetService>();
+            services.AddSingleton<IInternetService, InternetService>();            
 
             return services;
         }

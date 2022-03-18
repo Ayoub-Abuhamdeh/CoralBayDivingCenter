@@ -51,7 +51,7 @@ namespace CoralBayDivingCenter.Utils
         public Task SetRootPage<TViewModel>() where TViewModel : BaseViewModel
         {
             var page = CreatePage(typeof(TViewModel));
-            var root = App.Current.MainPage.Navigation.NavigationStack[0];
+            var root = Application.Current.MainPage.Navigation.NavigationStack[0];
             Application.Current.MainPage.Navigation.InsertPageBefore(page, root);
             return Application.Current.MainPage.Navigation.PopToRootAsync();
         }
@@ -117,7 +117,7 @@ namespace CoralBayDivingCenter.Utils
         {
             await Device.InvokeOnMainThreadAsync(async () =>
             {
-                await App.Current?.MainPage?.Navigation?.PopAsync();
+                await Application.Current?.MainPage?.Navigation?.PopAsync();
             });
         }
 
