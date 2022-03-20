@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace CoralBayDivingCenter.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         private bool isArabic = LanguageDirection.FlowDirection == FlowDirection.RightToLeft;
         public bool IsArabic
@@ -27,6 +27,7 @@ namespace CoralBayDivingCenter.ViewModels
             {
                 isBusy = value;
                 OnPropertyChanged();
+                ChangeCommandState();
             }
         }
 
@@ -65,6 +66,8 @@ namespace CoralBayDivingCenter.ViewModels
                 // Notify the user that there is No Internet connection
             }
         }
+
+        public abstract void ChangeCommandState();
 
         protected virtual void OnPropertyChanged([CallerMemberName] string name = "")
         {

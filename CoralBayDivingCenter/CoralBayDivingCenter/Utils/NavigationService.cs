@@ -30,7 +30,9 @@ namespace CoralBayDivingCenter.Utils
             {
                 if ((!appSettings?.IsLoggedIn) ?? true) // Navigate to login view
                 {
-                    await NavigateToAsync<SignInViewModel>();
+                    //await NavigateToAsync<SignInViewModel>();
+                    await NavigateToAsync<IntroViewModel>();
+
                     return;
                 }
             }

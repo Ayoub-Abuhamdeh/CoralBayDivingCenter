@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CoralBayDivingCenter.ViewModels"
+             viewmodels:ViewModelLocator.AutoWireViewModel="True"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             x:Class="CoralBayDivingCenter.Views.Intro">
+    <AbsoluteLayout BackgroundColor="#080025">
+
+        <!-- 2 Fishes Icon -->
+        <Image 
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds=".025,.05,.15,.075"            
+            Source="TwoFishes.png"
+            BackgroundColor="Transparent"
+            Aspect="Fill"            
+            />
+
+        <!-- Title-->
+        <Label Text="CBDC" BackgroundColor="Transparent" 
+               AbsoluteLayout.LayoutFlags="All"
+               HorizontalTextAlignment="Start"
+               VerticalTextAlignment="Center"
+               AbsoluteLayout.LayoutBounds="1,.05,.81,.075"            
+               TextColor="White"
+               FontAttributes="Bold"
+               FontSize="19"
+               />
+        
+        <!-- Circle BG-->
+        <Image Source="CircleOceanBG.png" 
+               BackgroundColor="Transparent"
+               AbsoluteLayout.LayoutFlags="All"
+               AbsoluteLayout.LayoutBounds=".5,.3,.6,.3"
+               Aspect="AspectFit"
+               />
+
+        <!-- Diver 3D -->
+            <Image Source="Diver3D.png" 
+               BackgroundColor="Transparent"
+               AbsoluteLayout.LayoutFlags="All"
+               AbsoluteLayout.LayoutBounds=".5,.3,.8,.4"
+               Aspect="AspectFit"
+               Rotation="-45"
+               />
+
+        <!-- Header -->
+        <Label Text="Find &amp; Book Scuba Diving Packages"
+               BackgroundColor="Transparent" 
+               AbsoluteLayout.LayoutFlags="All"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               AbsoluteLayout.LayoutBounds=".5,.67,.75,.125"            
+               TextColor="White"
+               FontAttributes="Bold"
+               Margin="10,0"
+               FontSize="24"/>
+
+        <!-- Details label-->
+        <Label Text="Look for the most beautiful diving spots as you wish, here you can find popular diving spots in Aqaba"
+               BackgroundColor="Transparent" 
+               AbsoluteLayout.LayoutFlags="All"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Start"
+               AbsoluteLayout.LayoutBounds=".5,.85,.75,.15"            
+               TextColor="#a1a1a1"
+               Margin="10,0"
+               FontSize="15"/>
+
+        <!-- Explore Button-->
+        <Button AbsoluteLayout.LayoutBounds=".5,.975,.7,.075"            
+                CornerRadius="10"
+                AbsoluteLayout.LayoutFlags="All"
+                Text="Explore Now"
+                BackgroundColor="#58C1DD"
+                TextColor="White"
+                TextTransform="None"
+                FontAttributes="Bold"
+                FontSize="17"
+                Command="{Binding ExploreCommand}"
+                /> 
+
+
+    </AbsoluteLayout>
+</ContentPage>

@@ -35,5 +35,10 @@ namespace CoralBayDivingCenter.ViewModels
                 IsBusy = false;
             }
         }
+
+        public override void ChangeCommandState()
+        {
+            LoginCommand?.ChangeCanExecute();
+        }
     }
 }
