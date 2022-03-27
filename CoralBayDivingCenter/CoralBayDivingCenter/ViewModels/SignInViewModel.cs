@@ -8,27 +8,51 @@ namespace CoralBayDivingCenter.ViewModels
     public class SignInViewModel : BaseViewModel
     {
         private readonly INavigationService _navigationService;
-        public Command LoginCommand { get; }
+
+
+        private string phoneNumber;
+        public string PhoneNumber
+        {
+            get => phoneNumber;
+            set
+            {
+                phoneNumber = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool isPhoneNumberValid;
+        public bool IsPhoneNumberValid
+        {
+            get => isPhoneNumberValid;
+            set
+            {
+                isPhoneNumberValid = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        public Command RequestOtpCommand { get; }
 
         public SignInViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
 
-            LoginCommand = new Command(async () => await LoginAsync(), () => !IsBusy);
+            RequestOtpCommand = new Command(async () => await RequestOtpAsync(), () => !IsBusy);
         }
 
-        private async Task LoginAsync()
+        private async Task RequestOtpAsync()
         {
             try
             {
                 IsBusy = true;
 
-                Application.Current.MainPage = new AppShell();
-                await Application.Current.MainPage.Navigation.PopToRootAsync();
+                object[] parameters = { PhoneNumber };
+                await _navigationService.NavigateToAsync<OtpVerificationViewModel>(parameters);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
             }
             finally
             {
@@ -38,7 +62,7 @@ namespace CoralBayDivingCenter.ViewModels
 
         public override void ChangeCommandState()
         {
-            LoginCommand?.ChangeCanExecute();
+            RequestOtpCommand?.ChangeCanExecute();
         }
     }
 }

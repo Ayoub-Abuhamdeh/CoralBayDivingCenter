@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoralBayDivingCenter.Views.OtpVerification"
+             xmlns:viewmodels="clr-namespace:CoralBayDivingCenter.ViewModels"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             viewmodels:ViewModelLocator.AutoWireViewModel="True"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False">
+    <AbsoluteLayout BackgroundColor="#080025">
+        <!-- Animation for mobile verification-->
+        <forms:AnimationView Animation="MobilePinNumber.json"
+                             AnimationSource="AssetOrBundle"
+                             AbsoluteLayout.LayoutFlags="All"
+                             AbsoluteLayout.LayoutBounds=".5,.15,.8,.25"
+                             BackgroundColor="Transparent"
+                             Command="{Binding ClickCommand}"
+                             IsVisible="true"
+                             RepeatMode="Infinite" />
+
+        <!-- Header label-->
+        <Label BackgroundColor="Transparent"
+               AbsoluteLayout.LayoutFlags="All"
+               HorizontalTextAlignment="Center"
+               AbsoluteLayout.LayoutBounds=".5,.475,.7,.15">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="OTP Verification"
+                          TextColor="White"
+                          FontAttributes="Bold"
+                          FontSize="20" />
+                    <Span Text="{x:Static system:Environment.NewLine}" />
+                    <Span Text="Enter the pin number we sent to "
+                          TextColor="#a1a1a1"
+                          FontSize="15" />
+                    <Span Text="{Binding PhoneNumber}"
+                          TextColor="White"
+                          FontAttributes="Bold"
+                          FontSize="15" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </AbsoluteLayout>
+</ContentPage>

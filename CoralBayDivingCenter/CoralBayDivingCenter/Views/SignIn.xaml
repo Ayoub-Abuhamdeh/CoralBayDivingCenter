@@ -6,6 +6,7 @@
              xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:viewmodels="clr-namespace:CoralBayDivingCenter.ViewModels"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             xmlns:customerrenderers="clr-namespace:CoralBayDivingCenter.CustomerRenderers"
              viewmodels:ViewModelLocator.AutoWireViewModel="True"
              Shell.NavBarIsVisible="False">
     <AbsoluteLayout BackgroundColor="#080025">
@@ -14,13 +15,13 @@
                              AnimationSource="AssetOrBundle"
                              AbsoluteLayout.LayoutFlags="All"
                              AbsoluteLayout.LayoutBounds=".5,.15,.8,.25"
-                             BackgroundColor="Green"
+                             BackgroundColor="Transparent"
                              Command="{Binding ClickCommand}"
                              IsVisible="true"
                              RepeatMode="Infinite" />
-        
+
         <!-- Header label-->
-        <Label BackgroundColor="Red"
+        <Label BackgroundColor="Transparent"
                AbsoluteLayout.LayoutFlags="All"
                HorizontalTextAlignment="Center"
                AbsoluteLayout.LayoutBounds=".5,.475,.7,.15">
@@ -29,17 +30,50 @@
                     <Span Text="OTP Verification"
                           TextColor="White"
                           FontAttributes="Bold"
-                          FontSize="20"
-                          />
+                          FontSize="20" />
                     <Span Text="{x:Static system:Environment.NewLine}" />
                     <Span Text="We will send you a pin code on this mobile number"
-                          TextColor="#a1a1a1"                          
+                          TextColor="#a1a1a1"
                           FontSize="15" />
                 </FormattedString>
             </Label.FormattedText>
         </Label>
 
-        <
+        <!-- Phone number entry -->
+        <Frame Padding="15,2"
+               AbsoluteLayout.LayoutFlags="All"
+               AbsoluteLayout.LayoutBounds=".5,.65,.7,.075"
+               CornerRadius="35">
+
+            <customerrenderers:CustomEntry VerticalOptions="Center"
+                                           Placeholder="0096279xxxxxxx"
+                                           PlaceholderColor="Gray"
+                                           VerticalTextAlignment="Center"
+                                           TextColor="Black"
+                                           Keyboard="Numeric"
+                                           Text="{Binding PhoneNumber}" />
+        </Frame>
+
+        <!-- Warning label -->
+        <Label AbsoluteLayout.LayoutFlags="All"
+               BackgroundColor="Transparent"
+               AbsoluteLayout.LayoutBounds=".62,.72,.7,.05"
+               Text="This field must be a valid mobile number"
+               IsVisible="{Binding IsPhoneNumberValid}"
+               TextColor="Red"
+               FontSize="Micro" />
+
+
+       <!-- Request button -->
+        <Button AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="#58C1DD"
+                AbsoluteLayout.LayoutBounds=".5,.9,.7,.05"
+                CornerRadius="35"
+                TextTransform="None"
+                Text="Request OTP" 
+                Command="{Binding RequestOtpCommand}"
+                />
+
         
     </AbsoluteLayout>
 </ContentPage>
