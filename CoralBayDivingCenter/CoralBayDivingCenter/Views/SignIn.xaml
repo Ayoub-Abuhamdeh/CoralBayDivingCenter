@@ -3,12 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CoralBayDivingCenter.Views.SignIn"
              NavigationPage.HasNavigationBar="False"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:viewmodels="clr-namespace:CoralBayDivingCenter.ViewModels"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              viewmodels:ViewModelLocator.AutoWireViewModel="True"
              Shell.NavBarIsVisible="False">
-    <ContentPage.Content>
-        <StackLayout>
-            <Button Command="{Binding LoginCommand}" Text="Login" /> 
-        </StackLayout>
-    </ContentPage.Content>
+    <AbsoluteLayout BackgroundColor="#080025">
+        <!-- Animation for mobile verification-->
+        <forms:AnimationView Animation="MobileVerification.json"
+                             AnimationSource="AssetOrBundle"
+                             AbsoluteLayout.LayoutFlags="All"
+                             AbsoluteLayout.LayoutBounds=".5,.15,.8,.25"
+                             BackgroundColor="Green"
+                             Command="{Binding ClickCommand}"
+                             IsVisible="true"
+                             RepeatMode="Infinite" />
+        
+        <!-- Header label-->
+        <Label BackgroundColor="Red"
+               AbsoluteLayout.LayoutFlags="All"
+               HorizontalTextAlignment="Center"
+               AbsoluteLayout.LayoutBounds=".5,.475,.7,.15">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="OTP Verification"
+                          TextColor="White"
+                          FontAttributes="Bold"
+                          FontSize="20"
+                          />
+                    <Span Text="{x:Static system:Environment.NewLine}" />
+                    <Span Text="We will send you a pin code on this mobile number"
+                          TextColor="#a1a1a1"                          
+                          FontSize="15" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <
+        
+    </AbsoluteLayout>
 </ContentPage>

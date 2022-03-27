@@ -32,7 +32,7 @@
         <Image Source="CircleOceanBG.png" 
                BackgroundColor="Transparent"
                AbsoluteLayout.LayoutFlags="All"
-               AbsoluteLayout.LayoutBounds=".5,.3,.6,.3"
+               AbsoluteLayout.LayoutBounds=".5,.3,.4,.2"
                Aspect="AspectFit"
                />
 
@@ -40,7 +40,7 @@
             <Image Source="Diver3D.png" 
                BackgroundColor="Transparent"
                AbsoluteLayout.LayoutFlags="All"
-               AbsoluteLayout.LayoutBounds=".5,.3,.8,.4"
+               AbsoluteLayout.LayoutBounds=".5,.3,.55,.275"
                Aspect="AspectFit"
                Rotation="-45"
                />
